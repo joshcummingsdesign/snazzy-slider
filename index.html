@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Project Slideshow Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <section class="projectSnippet">
+    <div class="slider" style="height: 540px;">
+      <ul class="slides">
+        <li class="slide is-shown" style="background-color: #6bc17e;"><div class="slider__background-image" style="background-image: url('img/project1.png'); background-size: contain;"></div></li>
+        <li class="slide" style="background-color: #272727;"><div class="slider__background-image" style="background-image: url('img/project2.png'); background-size: contain;"></div></li>
+        <li class="slide" style="background-color: #f4f4f4;"><div class="slider__background-image" style="background-image: url('img/project3.png'); background-size: contain;"></div></li>
+      </ul>
+      <div class="slider-controls" aria-label="Project Slideshow Controls">
+        <div class="button-left" role="button" aria-label="Previous Project" tabindex="1">&lt;</div>
+        <div class="slider-dots" role="tablist">
+          <div class="slider-dot slider-dot--1 highlighted" role="tab" aria-controls="project1" aria-label="First Project" aria-selected="true" tabindex="2"></div>
+          <div class="slider-dot slider-dot--2" role="tab" aria-controls="project2" aria-label="Second Project" tabindex="3"></div>
+          <div class="slider-dot slider-dot--3" role="tab" aria-controls="project3" aria-label="Third Project" tabindex="4"></div>
+        </div>
+        <div class="button-right" role="button" aria-label="Next Project" tabindex="5">&gt;</div>
+      </div>
+    </div>
+    <div class="slider-info">
+      <div class="slider-info__text-container">
+        <div id="project1" class="slider-info__text text-shown" role="tabpanel" aria-hidden="false">
+          <h1>Project 1</h1>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus. Morbi ut mi. Nullam enim leo, egestas id, condimentum at, laoreet mattis, massa. Sed eleifend nonummy diam. Praesent mauris ante, elementum et, bibendum at, posuere sit amet, nibh. Duis tincidunt lectus quis dui viverra vestibulum. Suspendisse vulputate aliquam dui. Nulla elementum dui ut augue.</p>
+        </div>
+        <div id="project2" class="slider-info__text" role="tabpanel" aria-hidden="true">
+          <h1>Project 2</h1>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus. Morbi ut mi. Nullam enim leo, egestas id, condimentum at, laoreet mattis, massa. Sed eleifend nonummy diam. Praesent mauris ante, elementum et, bibendum at, posuere sit amet, nibh. Duis tincidunt lectus quis dui viverra vestibulum. Suspendisse vulputate aliquam dui. Nulla elementum dui ut augue.</p>
+        </div>
+        <div id="project3" class="slider-info__text" role="tabpanel" aria-hidden="true">
+          <h1>Project 3</h1>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus. Morbi ut mi. Nullam enim leo, egestas id, condimentum at, laoreet mattis, massa. Sed eleifend nonummy diam. Praesent mauris ante, elementum et, bibendum at, posuere sit amet, nibh. Duis tincidunt lectus quis dui viverra vestibulum. Suspendisse vulputate aliquam dui. Nulla elementum dui ut augue.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="js/fastclick.js"></script>
+  <script src="js/touchSwipe.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
