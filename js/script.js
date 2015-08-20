@@ -18,6 +18,7 @@ var $sliderDot2 = $sliderControls.find(".slider-dot--2");
 var $sliderDot3 = $sliderControls.find(".slider-dot--3");
 var $slideTextContainer = $(".slider-info__text-container");
 var $slideText = $slideTextContainer.find(".slider-info__text");
+var $focusItems = $(".slider-controls *, .link-item");
 
 // Functions
 
@@ -102,7 +103,7 @@ function sliderSwipe(event, direction, distance, duration, fingerCount) {
      }
 
 //Make the enter key the same as a click for accessibility
-$sliderAllControls.keydown(function(event) {
+$focusItems.keydown(function(event) {
     if((event.keyCode==13) || (event.keyCode==32)) {
        $(this).click();
     }
