@@ -7,6 +7,7 @@ html, body {
 body {
   font-family: 'Roboto', Georgia, Times, 'Times New Roman', serif;
   color: #fff;
+  background-color: #1f1f1f;
 }
 
 h1, h2, h3, h4, p, * {
@@ -31,6 +32,15 @@ p {
   line-height: 1.4;
   font-size: 1.125em;
 }
+
+footer {
+  color: #555;
+  font-size: .875em;
+  font-weight: 300;
+  padding: 1em 1em .5em;
+  text-align: center;
+}
+
 
 /* Images */
 .slider {
@@ -142,6 +152,8 @@ p {
   position: relative;
   z-index: 2;
   box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+  top: -5px;
+  transition: all .2s ease-in-out;
 }
 
 .link-item:nth-child(even) {
@@ -149,11 +161,22 @@ p {
   background-color: #293E63;
   position: relative;
   z-index: 1;
+  top: -10px;
+}
+
+.link-item:hover, .link-item:focus {
+  top: 0;
+}
+
+.link-item:nth-child(even):hover, .link-item:nth-child(even):focus {
+  top: -5px;
 }
 
 .link-item p {
   position: relative;
   top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   font-size: 1em;
 }
