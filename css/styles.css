@@ -34,6 +34,7 @@ footer {
   color: #aaa;
   font-size: .75em;
   text-align: center;
+  padding: 0 .75em;
 }
 
 
@@ -192,5 +193,5 @@ footer p:first-child {
 }
 
 footer p:last-child {
-  padding-top: .125em;
+  padding-top: .25em;
 }
