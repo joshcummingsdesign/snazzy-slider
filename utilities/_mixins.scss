@@ -1,0 +1,100 @@
+// Create BEM element selectors
+@mixin e($element) {
+	&__#{$element} {
+    @content;
+  }
+}
+
+// Create BEM modifier selectors
+@mixin m($modifier) {
+  &--#{$modifier} {
+    @content;
+  }
+}
+
+// Generate :before or :after pseudo-element shapes
+@mixin pseudo-el($where, $width: null, $height: null) {
+	@if $where == "before" or $where == "after" {
+	  &:#{$where} {
+		  @extend %pseudos;
+		  width: $width;
+	  	height: $height;
+	    @content;
+	  }
+	}
+	@else {
+    @error "`#{$where}` is not a valid pseudo-element.";
+	}
+}
+
+// Triagnle generator
+@mixin triangle($direction, $size, $color) {
+	@if $direction == "up" {
+		width: 0;
+		height: 0;
+		border-left: $size solid transparent;
+		border-right: $size solid transparent;
+		border-bottom: $size solid $color;
+	} @elseif $direction == "down" {
+			width: 0;
+			height: 0;
+			border-left: $size solid transparent;
+			border-right: $size solid transparent;
+			border-top: $size solid $color;
+	} @elseif $direction == "left" {
+			width: 0;
+			height: 0;
+			border-top: $size solid transparent;
+			border-bottom: $size solid transparent;
+			border-right: $size solid $color;
+	} @elseif $direction == "right" {
+			width: 0;
+			height: 0;
+			border-top: $size solid transparent;
+			border-bottom: $size solid transparent;
+			border-left: $size solid $color;
+	} @else {
+		@error "'#{$direction}' is not a valid direction.";
+	}
+}
+
+// Media queries
+@mixin mq($break) {
+  @if $break == "small" {
+    @media (min-width: $brkpoint-sm) and (max-width: $brkpoint-md) {
+      @content;
+    }
+  }
+  @else if $break == "medium" {
+    @media (min-width: $brkpoint-md + 1) {
+      @content;
+    }
+  }
+  @else if $break == "large" {
+    @media (min-width: $brkpoint-lg) {
+      @content;
+    }
+  }
+   @else {
+   	@error "`#{$break}` is not a valid breakpoint."
+  }
+}
+
+// Calculate grid columns
+@mixin g-columns {
+  @for $i from 1 through $g-col-count {
+    $context: g-context($g-col-width, $g-col-count ,$g-gutter-width) !global;
+    $target: ($g-col-width * $i) + ($g-gutter-width * ($i - 1));
+    // Generate column modifier classes
+    &--#{$i} {
+      width: percentage($target / $context);
+    }
+  }
+}
+
+// Apply styles to all but first of selected element
+@mixin not-first() {
+	& + & {
+    @content;
+	}
+}

@@ -1,0 +1,57 @@
+// Font stacks
+$font-family--primary: Georgia, Times, 'Times New Roman', serif;
+$font-family--secondary: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+// Font weights
+$font-weight--thin: 100;
+$font-weight--light: 300;
+$font-weight--medium: 400;
+$font-weight--bold: 700;
+$font-weight--ultra-bold: 900;
+
+// Body copy
+$base__font-size: 16px;
+$base__line: 24px;
+$base__line--headings: 16px;
+
+// Colors
+$white: #fff;
+$black: #333;
+$grey: #bbb;
+
+// Color shades
+$color-shades: (
+  grey: (
+    x-light: lighten($grey, 10%),
+    light : lighten($grey, 5%),
+    base : $grey,
+    dark : darken($grey, 5%),
+    x-dark: darken($grey, 10%)
+  ),
+  black: (
+    light : lighten($black, 10%),
+    base : $black,
+    dark : darken($black, 10%),
+  )
+);
+
+// Color scheme
+$body__background-color: $white;
+$color-primary: $black;
+$color-secondary: $white;
+$color-accent: $grey;
+$color-shadow: rgba($black, .2);
+
+// Transitions
+$trns-duration  : .2s;
+
+// Grid
+$g-col-width: 65px;
+$g-gutter-width: 20px;
+$g-col-count: 12;
+$g-cont-max-w: 1050px;
+
+// Breakpoints
+$brkpoint-sm: 1px;
+$brkpoint-md: 768px;
+$brkpoint-lg: 1100px;
