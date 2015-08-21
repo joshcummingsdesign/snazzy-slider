@@ -7,6 +7,7 @@ A beautiful, user-friendly, and accessible way to display featured portfolio ite
 * Ready for touch devices
 
 ## Release Notes
+* Snazzy Slider v0.0.1
 * TouchSwipe v1.6.9
 * Normalize.css v3.0.2
 * FastClick v1.0.6
