@@ -21,7 +21,6 @@ var $slideText = $slideTextContainer.find(".slider-info__text");
 var $focusItems = $(".slider-controls *, .link-item");
 
 // Functions
-
 // Slider Controls
 function slideAdvance(n) {
   // Advance slide
@@ -139,7 +138,7 @@ $sliderDot3.click(function() {
   }
 });
 
-// Stop slider timer when controls are clicked
-$sliderAllControls.click(function() {
+// Stop slider timer when controls are clicked or focused
+$sliderAllControls.bind( "click focus", function() {
   stopSlider();
 });

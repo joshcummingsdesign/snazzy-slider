@@ -1,5 +1,4 @@
 /* Base Styles */
-
 html, body {
   height: 100%;
 }
@@ -167,6 +166,10 @@ footer {
 
 .link-item:hover, .link-item:focus {
   top: 0;
+}
+
+.link-item:focus p {
+  text-decoration: underline;
 }
 
 .link-item:nth-child(even):hover, .link-item:nth-child(even):focus {
