@@ -5,8 +5,6 @@ html, body {
 
 body {
   font-family: 'Roboto', Georgia, Times, 'Times New Roman', serif;
-  color: #fff;
-  background-color: #1f1f1f;
 }
 
 h1, h2, h3, h4, p, * {
@@ -33,10 +31,8 @@ p {
 }
 
 footer {
-  color: #555;
-  font-size: .875em;
-  font-weight: 300;
-  padding: 1em 1em .5em;
+  color: #aaa;
+  font-size: .75em;
   text-align: center;
 }
 
@@ -63,6 +59,7 @@ footer {
 .slider-controls {
   font-size: 1.875em;
   font-family: Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;
+  color: #fff;
   text-shadow: 2px 2px 2px rgba(0,0,0,0.3);
   display: inline-block;
   position: absolute;
@@ -141,13 +138,13 @@ footer {
 
 /* Extras */
 .link-item {
-  box-sizing: border-box;
-  background-color: #3d5a8c;
+  font-family: 'Roboto Mono', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  background-color: #f5f5f5;
   width: 100%;
   float: left;
   height: 4em;
   text-align: center;
-  color: #fff;
+  color: #000;
   position: relative;
   z-index: 2;
   box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
@@ -158,7 +155,7 @@ footer {
 
 .link-item:nth-child(even) {
   float: right;
-  background-color: #293E63;
+  background-color: #cdcfd2;
   position: relative;
   z-index: 1;
   top: -10px;
@@ -183,4 +180,17 @@ footer {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   font-size: 1em;
+}
+
+footer p {
+  padding: 1.25em 0;
+  display: inline-block;
+}
+
+footer p:first-child {
+  padding-bottom: 0;
+}
+
+footer p:last-child {
+  padding-top: .125em;
 }
