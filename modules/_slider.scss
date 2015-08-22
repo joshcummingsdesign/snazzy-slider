@@ -18,6 +18,7 @@
   float: left;
   list-style-type: none;
   height: 100%;
+  @include accelerate();
 }
 
 /* Slider Controls */
