@@ -12,19 +12,16 @@
   }
 }
 
-// Generate :before or :after pseudo-element shapes
-@mixin pseudo-el($where, $width: null, $height: null) {
-	@if $where == "before" or $where == "after" {
-	  &:#{$where} {
-		  @extend %pseudos;
-		  width: $width;
-	  	height: $height;
-	    @content;
-	  }
-	}
-	@else {
-    @error "`#{$where}` is not a valid pseudo-element.";
-	}
+// Calculate grid columns
+@mixin g-columns {
+  @for $i from 1 through $g-col-count {
+    $context: g-context($g-col-width, $g-col-count ,$g-gutter-width) !global;
+    $target: ($g-col-width * $i) + ($g-gutter-width * ($i - 1));
+    // Generate column modifier classes
+    &--#{$i} {
+      width: percentage($target / $context);
+    }
+  }
 }
 
 // Triagnle generator
@@ -76,19 +73,7 @@
     }
   }
    @else {
-   	@error "`#{$break}` is not a valid breakpoint."
-  }
-}
-
-// Calculate grid columns
-@mixin g-columns {
-  @for $i from 1 through $g-col-count {
-    $context: g-context($g-col-width, $g-col-count ,$g-gutter-width) !global;
-    $target: ($g-col-width * $i) + ($g-gutter-width * ($i - 1));
-    // Generate column modifier classes
-    &--#{$i} {
-      width: percentage($target / $context);
-    }
+   	@error "'#{$break}' is not a valid breakpoint."
   }
 }
 
@@ -97,6 +82,24 @@
 	& + & {
     @content;
 	}
+}
+
+// Flexbox
+@mixin flex-parent() {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+}
+@mixin flex-child() {
+	-ms-flex: 1 0 auto;
+	-webkit-box-flex: 1;
+	-webkit-flex-grow: 1;
+	flex-grow: 1;
 }
 
 // Transform
