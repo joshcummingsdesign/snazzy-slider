@@ -1,10 +1,8 @@
-// Variables for Snazzy Slider
+// Variables
 var img_width;
 var currentImg = 0;
 var maxImages = 3;
 var speed = 500;
-var $slides = $(".snazzy-slider__slides");
-var $image = $(".snazzy-slider__image");
 var swipeOptions = {
     triggerOnTouchEnd: true,
     swipeStatus: swipeStatus,
@@ -12,14 +10,18 @@ var swipeOptions = {
     threshold: 75
 };
 
-// Functions for Snazzy Slider
+// Cache the DOM
+var $slides = $(".snazzy-slider__slides");
+var $image = $slides.find(".snazzy-slider__image");
+
+// Functions
 /*Catch each phase of the swipe,
 move: we drag the div,
 cancel: we animate back to where we were,
 end: we animate to the next image */
 function swipeStatus(event, phase, direction, distance) {
-  // If we are moving before swipe
-  // and we are going L or R in X mode, or U or D in Y mode then drag
+  /*If we are moving before swipe and we are going L or R in X mode,
+    or U or D in Y mode then drag */
   if (phase == "move" && (direction == "left" || direction == "right")) {
     var duration = 0;
     if (direction == "left") {
@@ -38,13 +40,11 @@ function swipeStatus(event, phase, direction, distance) {
   }
 }
 
-// Previous Snazy Slider Image
 function previousImage() {
   currentImg = Math.max(currentImg - 1, 0);
   scrollImages(img_width * currentImg, speed);
 }
 
-// Next Snazy Slider Image
 function nextImage() {
   currentImg = Math.min(currentImg + 1, maxImages - 1);
   scrollImages(img_width * currentImg, speed);
@@ -58,16 +58,16 @@ function scrollImages(distance, duration) {
   $slides.css("transform", "translate(" + value + "px,0)");
 }
 
-// On load initialize TouchSwipe
+// Initialize TouchSwipe
 $(function () {
   $slides.swipe(swipeOptions);
 });
 
-// On load and resize set the Snazzy Slider image width
-// and move it back into position
+// Set the Snazzy Slider image width on load and resize
 $(window).on("load resize",function(e){
   $screenWidth = $(window).width();
   img_width = $screenWidth;
   $image.width($screenWidth);
+  // Move the image back into position
   scrollImages(img_width * currentImg, 0);
 });
