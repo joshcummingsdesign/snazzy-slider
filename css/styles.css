@@ -581,10 +581,7 @@ footer {
     .site-links__item:nth-child(even):hover, .site-links__item:nth-child(even):focus {
       top: -5px; }
 
-.is-shown {
-  display: block; }
-
-.text-shown {
+.snazzy-text-shown {
   display: block; }
 
 /*# sourceMappingURL=styles.css.map */
