@@ -1,0 +1,68 @@
+/* Snazzy Slider */
+//Slider Image
+.snazzy-slider {
+  width: 100%;
+  overflow: hidden;
+  margin-top: $header-height;
+  @include e(slides) {
+    display: block;
+    width: 9999px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    @include accelerate();
+  }
+  @include e(image) {
+    float: left;
+    list-style-type: none;
+    height: 100%;
+    @include accelerate();
+  }
+}
+
+// Slider Controls
+.snazzy-controls {
+  height: 40px;
+  position: relative;
+  z-index: 3;
+  cursor: default;
+  padding: 0 0 10px .625em;
+  max-width: 1080px;
+  margin: -50px auto 0;
+  & * {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    outline: none;
+  }
+  &__left-btn, &__right-btn, &__dots {
+    position: relative;
+    top: 50%;
+    @include transform(translateY(-50%));
+  }
+}
+
+.snazzy-controls__dot {
+  height: 10px;
+  width: 10px;
+  margin: .25em .5em;
+  border: 2px solid white;
+  border-radius: 100%;
+  box-shadow: 2px 2px 2px rgba(0,0,0,.3);
+  list-style-type: none;
+}
+
+// Slider Text
+.snazzy-text {
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+  position: relative;
+  z-index: 3;
+  @include e(container) {
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 1em 1em 1.5em;
+  }
+  @include e(project) {
+    display: none;
+  }
+}

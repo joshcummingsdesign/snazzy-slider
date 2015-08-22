@@ -3,8 +3,8 @@ var img_width;
 var currentImg = 0;
 var maxImages = 3;
 var speed = 500;
-var imgs;
-var $slide;
+var $slides;
+var $image;
 var swipeOptions = {
     triggerOnTouchEnd: true,
     swipeStatus: swipeStatus,
@@ -47,25 +47,25 @@ function nextImage() {
   scrollImages(img_width * currentImg, speed);
 }
 
-//Manually update the position of the imgs on drag
+//Manually update the position of the $slides on drag
 function scrollImages(distance, duration) {
-  imgs.css("transition-duration", (duration / 1000).toFixed(1) + "s");
+  $slides.css("transition-duration", (duration / 1000).toFixed(1) + "s");
   //inverse the number we set in the css
   var value = (distance < 0 ? "" : "-") + Math.abs(distance).toString();
-  imgs.css("transform", "translate(" + value + "px,0)");
+  $slides.css("transform", "translate(" + value + "px,0)");
 }
 
 // On load
 $(function () {
-  imgs = $(".slides");
-  imgs.swipe(swipeOptions);
-  $slide = $(".slide");
+  $slides = $(".snazzy-slider__slides");
+  $slides.swipe(swipeOptions);
+  $image = $(".snazzy-slider__image");
 });
 
 // On load and resize
 $(window).on("load resize",function(e){
   $screenWidth = $(window).width();
   img_width = $screenWidth;
-  $slide.width($screenWidth);
+  $image.width($screenWidth);
   scrollImages(img_width * currentImg, 0);
 });
