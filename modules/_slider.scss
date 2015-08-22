@@ -1,28 +1,82 @@
+/* Slider Image */
 .slider {
   width: 100%;
-  height: 540px;
   overflow: hidden;
+  margin-top: $header-height;
 }
 
 .slides {
   display: block;
   width: 9999px;
-  height: 540px;
+  height: 100%;
   margin: 0;
   padding: 0;
-  -webkit-transform: translateZ(0);
-  -moz-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  -o-transform: translateZ(0);
-  transform: translateZ(0);
+  @include accelerate();
 }
 
 .slide {
   float: left;
-  height: 540px;
-  -webkit-transform: translateZ(0);
-  -moz-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  -o-transform: translateZ(0);
-  transform: translateZ(0);
+  list-style-type: none;
+  height: 100%;
+}
+
+/* Slider Controls */
+.slider-controls {
+  height: 40px;
+  position: relative;
+  z-index: 3;
+  cursor: default;
+  padding: 0 0 10px .625em;
+  max-width: 1080px;
+  margin: -50px auto 0;
+}
+
+.button-left, .button-right, .slider-dots {
+  position: relative;
+  top: 50%;
+  @include transform(translateY(-50%));
+}
+
+.slider-controls * {
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  outline: none;
+}
+
+.button-right:hover .button-right-fill,
+.button-right:focus .button-right-fill,
+.button-left:hover .button-left-fill,
+.button-left:focus .button-left-fill {
+  fill: tomato;
+}
+
+.slider-dot:hover,
+.slider-dot:focus {
+  border: 2px solid tomato;
+}
+
+.slider-dot {
+  height: 10px;
+  width: 10px;
+  margin: .25em .5em;
+  border: 2px solid white;
+  border-radius: 100%;
+  box-shadow: 2px 2px 2px rgba(0,0,0,.3);
+  list-style-type: none;
+}
+
+/* Slider Text */
+.slider-info {
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+  position: relative;
+  z-index: 3;
+  &__text {
+    display: none;
+    &-container {
+      max-width: 768px;
+      margin: 0 auto;
+      padding: 1em 1em 1.5em;
+    }
+  }
 }

@@ -98,3 +98,19 @@
     @content;
 	}
 }
+
+// Transform
+@mixin transform($transforms) {
+	-webkit-transform: $transforms;
+	-ms-transform: $transforms;
+	transform: $transforms;
+}
+
+// Hardware acceleration
+@mixin accelerate() {
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-o-transform: translateZ(0);
+	transform: translateZ(0);
+}

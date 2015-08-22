@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href='http://fonts.googleapis.com/css?family=Roboto|Roboto+Mono:700,400' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/styles.css">
+  <style> .highlighted { background-color: tomato; } </style>
   <title>Snazzy Slider</title>
 </head>
 <body>
@@ -22,73 +23,73 @@
       <h1>Snazzy Slider</h1>
     </div>
   </header>
-  <section class="snazzy-slider"></section>
-    <div class="slider">
-      <div class="slides">
-        <div class="slide" role="img" aria-label="Project 1" style="background: #6bc17e url('img/project1.png') no-repeat center; background-size: contain;"></div>
-        <div class="slide" role="img" aria-label="Project 2" style="background: #272727 url('img/project2.png') no-repeat center; background-size: contain;"></div>
-        <div class="slide" role="img" aria-label="Project 3" style="background: #f4f4f4 url('img/project3.png') no-repeat center; background-size: contain;"></div>
+  <div class="snazzy-slider">
+    <div class="slider" style="height: 540px;">
+      <ul class="slides">
+        <li class="slide" role="img" aria-label="Project 1" style="background: #6bc17e url('img/project1.png') no-repeat center; background-size: contain;"></li>
+        <li class="slide" role="img" aria-label="Project 2" style="background: #272727 url('img/project2.png') no-repeat center; background-size: contain;"></li>
+        <li class="slide" role="img" aria-label="Project 3" style="background: #f4f4f4 url('img/project3.png') no-repeat center; background-size: contain;"></li>
+      </ul>
+    </div>
+    <div class="slider-controls" aria-label="Project Slideshow Controls">
+      <div class="button-left" role="button" aria-label="Previous Project" tabindex="0">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+           viewBox="0 0 30 30" height="22px" width="22px" xml:space="preserve" tabindex="-1">
+          <filter id="blur">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="1" />
+          </filter>
+          <path tabindex="-1" filter="url(#blur)" opacity=".3" d="M16.8,3.1c0.6-0.7,1.7-0.6,2.2,0c0.5,0.6,0.5,1.5-0.1,2.1C15.5,8.6,12.1,12,8.7,15.5l10.3,10.3c0.8,0.7,0.8,1.9,0.2,2.5
+            c-0.6,0.5-1.7,0.4-2.3-0.3C12.9,23.9,9,20.1,5.1,16.2c-0.2-0.2-0.4-0.5-0.4-0.8c0-0.3,0.3-0.6,0.5-0.8C9.3,10.8,13,6.9,16.8,3.1z"/>
+          <path tabindex="-1" class="button-left-fill" fill="#fff" d="M19.6,2.5c0.6-0.7,1.7-0.6,2.2,0c0.5,0.6,0.5,1.5-0.1,2.1c-3.4,3.4-6.8,6.8-10.3,10.3l10.3,10.3
+            c0.8,0.7,0.8,1.9,0.2,2.5c-0.6,0.5-1.7,0.4-2.3-0.3c-3.9-3.9-7.8-7.7-11.7-11.7c-0.2-0.2-0.4-0.5-0.4-0.8c0-0.3,0.3-0.6,0.5-0.8
+            C12.1,10.3,15.8,6.4,19.6,2.5z"/>
+        </svg>
       </div>
-      <div class="slider-controls" aria-label="Project Slideshow Controls">
-        <div class="button-left" role="button" aria-label="Previous Project" tabindex="0">
-          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-             viewBox="0 0 30 30" height="22px" width="22px" xml:space="preserve" tabindex="-1">
-            <filter id="blur">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="1" />
-            </filter>
-            <path tabindex="-1" filter="url(#blur)" opacity=".3" d="M16.8,3.1c0.6-0.7,1.7-0.6,2.2,0c0.5,0.6,0.5,1.5-0.1,2.1C15.5,8.6,12.1,12,8.7,15.5l10.3,10.3c0.8,0.7,0.8,1.9,0.2,2.5
-              c-0.6,0.5-1.7,0.4-2.3-0.3C12.9,23.9,9,20.1,5.1,16.2c-0.2-0.2-0.4-0.5-0.4-0.8c0-0.3,0.3-0.6,0.5-0.8C9.3,10.8,13,6.9,16.8,3.1z"/>
-            <path tabindex="-1" class="button-left-fill" fill="#fff" d="M19.6,2.5c0.6-0.7,1.7-0.6,2.2,0c0.5,0.6,0.5,1.5-0.1,2.1c-3.4,3.4-6.8,6.8-10.3,10.3l10.3,10.3
-              c0.8,0.7,0.8,1.9,0.2,2.5c-0.6,0.5-1.7,0.4-2.3-0.3c-3.9-3.9-7.8-7.7-11.7-11.7c-0.2-0.2-0.4-0.5-0.4-0.8c0-0.3,0.3-0.6,0.5-0.8
-              C12.1,10.3,15.8,6.4,19.6,2.5z"/>
-          </svg>
-        </div>
-        <div class="slider-dots" role="tablist">
-          <div class="slider-dot slider-dot--1 highlighted" role="tab" aria-controls="project1" aria-label="First Project" aria-selected="true" tabindex="0"></div>
-          <div class="slider-dot slider-dot--2" role="tab" aria-controls="project2" aria-label="Second Project" tabindex="0"></div>
-          <div class="slider-dot slider-dot--3" role="tab" aria-controls="project3" aria-label="Third Project" tabindex="0"></div>
-        </div>
-        <div class="button-right" role="button" aria-label="Next Project" tabindex="0">
-          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-             viewBox="0 0 30 30" height="22px" width="22px" xml:space="preserve" tabindex="-1">
-            <filter id="blur">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="1"/>
-            </filter>
-            <path tabindex="-1" filter="url(#blur)" opacity=".3" d="M14.3,28.5c-0.6,0.7-1.7,0.6-2.2,0c-0.5-0.6-0.5-1.5,0.1-2.1c3.4-3.4,6.8-6.8,10.3-10.3L12.2,5.9C11.3,5.2,11.4,4,12,3.5
-              C12.6,3,13.7,3,14.3,3.8c3.9,3.9,7.8,7.7,11.7,11.7c0.2,0.2,0.4,0.5,0.4,0.8c0,0.3-0.3,0.6-0.5,0.8C21.8,20.8,18.1,24.7,14.3,28.5z"
-              />
-            <path tabindex="-1" class="button-right-fill" fill="#fff" d="M11.4,27.5c-0.6,0.7-1.7,0.6-2.2,0c-0.5-0.6-0.5-1.5,0.1-2.1c3.4-3.4,6.8-6.8,10.3-10.3L9.2,4.8
-              C8.4,4.1,8.4,2.9,9.1,2.4c0.6-0.5,1.7-0.4,2.3,0.3c3.9,3.9,7.8,7.7,11.7,11.7c0.2,0.2,0.4,0.5,0.4,0.8c0,0.3-0.3,0.6-0.5,0.8
-              C18.9,19.7,15.2,23.6,11.4,27.5z"/>
-          </svg>
-        </div>
+      <ul class="slider-dots" role="tablist">
+        <li class="slider-dot slider-dot--1 highlighted" role="tab" aria-controls="project1" aria-label="First Project" aria-selected="true" tabindex="0"></li>
+        <li class="slider-dot slider-dot--2" role="tab" aria-controls="project2" aria-label="Second Project" tabindex="0"></li>
+        <li class="slider-dot slider-dot--3" role="tab" aria-controls="project3" aria-label="Third Project" tabindex="0"></li>
+      </ul>
+      <div class="button-right" role="button" aria-label="Next Project" tabindex="0">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+           viewBox="0 0 30 30" height="22px" width="22px" xml:space="preserve" tabindex="-1">
+          <filter id="blur">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="1"/>
+          </filter>
+          <path tabindex="-1" filter="url(#blur)" opacity=".3" d="M14.3,28.5c-0.6,0.7-1.7,0.6-2.2,0c-0.5-0.6-0.5-1.5,0.1-2.1c3.4-3.4,6.8-6.8,10.3-10.3L12.2,5.9C11.3,5.2,11.4,4,12,3.5
+            C12.6,3,13.7,3,14.3,3.8c3.9,3.9,7.8,7.7,11.7,11.7c0.2,0.2,0.4,0.5,0.4,0.8c0,0.3-0.3,0.6-0.5,0.8C21.8,20.8,18.1,24.7,14.3,28.5z"
+            />
+          <path tabindex="-1" class="button-right-fill" fill="#fff" d="M11.4,27.5c-0.6,0.7-1.7,0.6-2.2,0c-0.5-0.6-0.5-1.5,0.1-2.1c3.4-3.4,6.8-6.8,10.3-10.3L9.2,4.8
+            C8.4,4.1,8.4,2.9,9.1,2.4c0.6-0.5,1.7-0.4,2.3,0.3c3.9,3.9,7.8,7.7,11.7,11.7c0.2,0.2,0.4,0.5,0.4,0.8c0,0.3-0.3,0.6-0.5,0.8
+            C18.9,19.7,15.2,23.6,11.4,27.5z"/>
+        </svg>
       </div>
     </div>
-    <div class="slider-info">
+    <div class="slider-info" style="color: #f7f7f7; background-color: #4688f1;">
       <div class="slider-info__text-container">
-        <div id="project1" class="slider-info__text text-shown" role="tabpanel" aria-hidden="false">
+        <section id="project1" class="slider-info__text text-shown" role="tabpanel" aria-hidden="false">
           <h1>Project 1</h1>
           <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus. Morbi ut mi. Nullam enim leo, egestas id, condimentum at, laoreet mattis, massa. Sed eleifend nonummy diam. Praesent mauris ante, elementum et, bibendum at, posuere sit amet, nibh. Duis tincidunt lectus quis dui viverra vestibulum. Suspendisse vulputate aliquam dui. Aliquam erat volutpat.</p>
-        </div>
-        <div id="project2" class="slider-info__text" role="tabpanel" aria-hidden="true">
+        </section>
+        <section id="project2" class="slider-info__text" role="tabpanel" aria-hidden="true">
           <h1>Project 2</h1>
           <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus. Morbi ut mi. Nullam enim leo, egestas id, condimentum at, laoreet mattis, massa. Sed eleifend nonummy diam. Praesent mauris ante, elementum et, bibendum at, posuere sit amet, nibh. Duis tincidunt lectus quis dui viverra vestibulum. Suspendisse vulputate aliquam dui. Aliquam erat volutpat.</p>
-        </div>
-        <div id="project3" class="slider-info__text" role="tabpanel" aria-hidden="true">
+        </section>
+        <section id="project3" class="slider-info__text" role="tabpanel" aria-hidden="true">
           <h1>Project 3</h1>
           <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus. Morbi ut mi. Nullam enim leo, egestas id, condimentum at, laoreet mattis, massa. Sed eleifend nonummy diam. Praesent mauris ante, elementum et, bibendum at, posuere sit amet, nibh. Duis tincidunt lectus quis dui viverra vestibulum. Suspendisse vulputate aliquam dui. Aliquam erat volutpat.</p>
-        </div>
+        </section>
       </div>
     </div>
-  </section>
-  <section class="links">
+  </div>
+  <div class="links">
     <a href="http://joshcummingsdesign.com" class="link-item">
         <p>Josh Cummings Design</p>
     </a>
     <a href="https://github.com/joshcummingsdesign/snazzy-slider" class="link-item">
         <p>Fork Me on GitHub</p>
     </a>
-  </section>
+  </div>
   <footer>
     <p>&copy; 2015 Josh Cummings Design.</p>
     <p>Coded by hand with love.</p>
