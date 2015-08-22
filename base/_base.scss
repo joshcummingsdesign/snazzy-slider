@@ -1,7 +1,8 @@
 /* Begin Custom Styles
    ========================================================================== */
-
-/* Base Styles */
+/**
+ * Base Styles
+ */
 html, body {
   height: 100%;
 }
@@ -35,8 +36,8 @@ p {
 }
 
 .site-header {
-  background-color: #000;
-  color: #fff;
+  background-color: $black;
+  color: $white;
   box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
   position: fixed;
   top: 0;
@@ -67,7 +68,7 @@ p {
 }
 
 footer {
-  color: #aaa;
+  color: $medium-grey;
   font-size: .75em;
   text-align: center;
   padding: 0 .75em;

@@ -1,12 +1,12 @@
 .site-links {
   @include e(item) {
     font-family: 'Roboto Mono', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
-    background-color: #f5f5f5;
+    background-color: $light-grey;
     width: 100%;
     float: left;
     height: 4em;
     text-align: center;
-    color: #000;
+    color: $black;
     position: relative;
     z-index: 2;
     box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
@@ -29,7 +29,7 @@
     }
     &:nth-child(even) {
       float: right;
-      background-color: #cdcfd2;
+      background-color: $grey;
       position: relative;
       z-index: 1;
       top: -10px;
