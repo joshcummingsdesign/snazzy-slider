@@ -29,6 +29,7 @@
   padding: 0 0 10px .625em;
   max-width: 1080px;
   margin: -50px auto 0;
+  @include no-select();
   & * {
     display: inline-block;
     vertical-align: middle;
