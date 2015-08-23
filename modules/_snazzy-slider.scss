@@ -70,25 +70,20 @@
 }*/
 
 .snazzy-text {
-  background-color: blue;
   box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
   position: relative;
   z-index: 3;
   @include e(background) {
-    background-color: green;
     overflow-y: hidden;
   }
   @include e(container) {
-    background-color: orange;
     width: 9999px;
   }
   @include e(project) {
-    background-color: purple;
     float: left;
     width: 720px;
   }
   @include e(project-text) {
-    border: 1px solid white;
     padding: 1em 1em 1.5em;
   }
 }
