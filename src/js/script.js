@@ -76,6 +76,7 @@ function snazzyPrevImg() {
     snazzyNth--;
     snazzyAria();
     snazzyHighlight();
+    snazzyTxtChange(snazzyNth);
   }
 }
 
@@ -86,6 +87,7 @@ function snazzyNextImg() {
     snazzyNth++;
     snazzyAria();
     snazzyHighlight();
+    snazzyTxtChange(snazzyNth);
   }
 }
 
@@ -95,6 +97,7 @@ function snazzyLastImg() {
   snazzyNth = $snazzyDots.length;
   snazzyAria();
   snazzyHighlight();
+  snazzyTxtChange($snazzyDots.length);
 }
 
 function snazzyFirstImg() {
@@ -103,6 +106,16 @@ function snazzyFirstImg() {
   snazzyNth = 1;
   snazzyAria();
   snazzyHighlight();
+  snazzyTxtChange(1);
+}
+
+function snazzyTxtChange(n, direction, effect) {
+  // Animate text
+  // Hide current project
+  $snazzyText.hide();
+  // Show next project
+  $(".snazzy-text__project:nth-child(" + n + ")").show();
+  // Animate text
 }
 
 // Initialize TouchSwipe
@@ -160,4 +173,5 @@ $snazzyDots.click(function() {
   snazzyScrollImgs(snazzyImgWidth * snazzyCurrentImg, snazzyScrollSpeed);
   snazzyNth = snazzyCurrentImg + 1;
   snazzyAria();
+  snazzyTxtChange(snazzyNth);
 });
