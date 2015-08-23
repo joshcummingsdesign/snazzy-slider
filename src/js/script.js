@@ -18,6 +18,8 @@ var $snazzyControls = $(".snazzy-controls");
 var $snazzyLftBtn = $snazzyControls.find(".snazzy-controls__left-btn");
 var $snazzyRtBtn = $snazzyControls.find(".snazzy-controls__right-btn");
 var $snazzyDots = $snazzyControls.find(".snazzy-controls__dot");
+var $snazzyText = $(".snazzy-text__project");
+var $focusItems = $(".snazzy-controls *, .site-links__item");
 
 // Functions
 /*Catch each phase of the swipe,
@@ -53,6 +55,15 @@ function snazzyScrollImgs(distance, duration) {
   $snazzySlides.css("transform", "translate(" + value + "px,0)");
 }
 
+function snazzyAria() {
+  $snazzyDots.removeAttr("aria-selected");
+  $(".snazzy-controls__dot:nth-child(" + snazzyNth + ")").attr("aria-selected", "true");
+  $snazzyText.attr("aria-hidden", "true");
+  $(".snazzy-text__project:nth-child(" + snazzyNth + ")").attr("aria-hidden", "false");
+  $snazzyImg.attr("aria-hidden", "true");
+  $(".snazzy-slider__image:nth-child(" + snazzyNth + ")").attr("aria-hidden", "false");
+}
+
 function snazzyHighlight() {
   $snazzyDots.removeClass("snazzy-dot-highlighted");
   $(".snazzy-controls__dot:nth-child(" + snazzyNth + ")").addClass("snazzy-dot-highlighted");
@@ -63,7 +74,8 @@ function snazzyPrevImg() {
   snazzyScrollImgs(snazzyImgWidth * snazzyCurrentImg, snazzyScrollSpeed);
   if (snazzyNth !== 1) {
     snazzyNth--;
-    snazzyHighlight();  
+    snazzyAria();
+    snazzyHighlight();
   }
 }
 
@@ -72,6 +84,7 @@ function snazzyNextImg() {
   snazzyScrollImgs(snazzyImgWidth * snazzyCurrentImg, snazzyScrollSpeed);
   if (snazzyNth !== $snazzyDots.length) {
     snazzyNth++;
+    snazzyAria();
     snazzyHighlight();
   }
 }
@@ -80,6 +93,7 @@ function snazzyLastImg() {
   snazzyCurrentImg = snazzyMaxImgs - 1;
   snazzyScrollImgs(snazzyImgWidth * snazzyCurrentImg, snazzyScrollSpeed);
   snazzyNth = $snazzyDots.length;
+  snazzyAria();
   snazzyHighlight();
 }
 
@@ -87,6 +101,7 @@ function snazzyFirstImg() {
   snazzyCurrentImg = 0;
   snazzyScrollImgs(snazzyImgWidth * snazzyCurrentImg, snazzyScrollSpeed);
   snazzyNth = 1;
+  snazzyAria();
   snazzyHighlight();
 }
 
@@ -102,6 +117,13 @@ $(window).on("load resize",function(e){
   $snazzyImg.width($screenWidth);
   // Move the image back into position
   snazzyScrollImgs(snazzyImgWidth * snazzyCurrentImg, 0);
+});
+
+//Make the enter key the same as a click for accessibility
+$focusItems.keydown(function(event) {
+    if((event.keyCode==13) || (event.keyCode==32)) {
+       $(this).click();
+    }
 });
 
 // On left button click
@@ -137,8 +159,5 @@ $snazzyDots.click(function() {
   snazzyCurrentImg = $(this).index();
   snazzyScrollImgs(snazzyImgWidth * snazzyCurrentImg, snazzyScrollSpeed);
   snazzyNth = snazzyCurrentImg + 1;
-});
-
-$(window).click(function(){
-  console.log(snazzyNth);
+  snazzyAria();
 });
