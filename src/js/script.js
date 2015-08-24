@@ -120,12 +120,12 @@ function swipeStatus(event, phase, direction, distance) {
     var duration = 0;
     if (direction == "left") {
       snazzyScrollImgs((snazzyImgWidth * snazzyCurrentImg) + distance, duration);
-      if (snazzyTxtFx === "slide") {
+      if (snazzyTxtFx === "slide" && snazzyNth !== $snazzyDots.length) {
         snazzyScrollTxt((snazzyImgWidth * snazzyCurrentImg) + distance, duration);
       }
     } else if (direction == "right") {
       snazzyScrollImgs((snazzyImgWidth * snazzyCurrentImg) - distance, duration);
-      if (snazzyTxtFx === "slide") {
+      if (snazzyTxtFx === "slide" && snazzyNth !== 1) {
         snazzyScrollTxt((snazzyImgWidth * snazzyCurrentImg) - distance, duration);
       }
     }
