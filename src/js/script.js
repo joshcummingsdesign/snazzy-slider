@@ -1,8 +1,5 @@
 // Variables
 var screenWidth;
-var screenWidth;
-var snazzyImgFx = "slide";
-var snazzyTxtFx = "slide";
 var snazzyCurrentImg = 0;
 var snazzyMaxImgs = 3;
 var snazzyScrollSpeed = 500;
@@ -25,35 +22,6 @@ var $snazzyTxt = $(".snazzy-text__project");
 var $focusItems = $(".snazzy-controls *, .site-links__item");
 
 // Functions
-// Manually update the position of the slides on drag
-function snazzyScrollImgs(distance, duration) {
-  $snazzySlides.css("transition-duration", (duration / 1000).toFixed(1) + "s");
-  // Inverse the number we set in the css
-  var value = (distance < 0 ? "" : "-") + Math.abs(distance).toString();
-  $snazzySlides.css("transform", "translate(" + value + "px,0)");
-}
-
-function snazzyFadeImg() {
-  $snazzySlides.animate({opacity: 0}, (snazzyScrollSpeed/2), function(){
-    $snazzySlides.css("transform", "translate(" + (snazzyCurrentImg * screenWidth * -1) + "px,0)");
-    $snazzySlides.animate({opacity: 1}, (snazzyScrollSpeed/2));
-  });
-}
-
-function snazzyScrollTxt(distance, duration) {
-  $snazzyTxt.css("transition-duration", (duration / 1000).toFixed(1) + "s");
-  // Inverse the number we set in the css
-  var value = (distance < 0 ? "" : "-") + Math.abs(distance).toString();
-  $snazzyTxt.css("transform", "translate(" + value + "px,0)");
-}
-
-function snazzyFadeTxt() {
-  $snazzyTxt.animate({opacity: 0}, (snazzyScrollSpeed/2), function(){
-    $snazzyTxt.css("transform", "translate(" + (snazzyCurrentImg * screenWidth * -1) + "px,0)");
-    $snazzyTxt.animate({opacity: 1}, (snazzyScrollSpeed/2));
-  });
-}
-
 function snazzyAria() {
   $snazzyDots.removeAttr("aria-selected");
   $(".snazzy-controls__dot:nth-child(" + snazzyNth + ")").attr("aria-selected", "true");
@@ -68,20 +36,25 @@ function snazzyHighlight() {
   $(".snazzy-controls__dot:nth-child(" + snazzyNth + ")").addClass("snazzy-dot-highlighted");
 }
 
+// Manually update the position of the slides on drag
+function snazzyScrollImgs(distance, duration) {
+  $snazzySlides.css("transition-duration", (duration / 1000).toFixed(1) + "s");
+  // Inverse the number we set in the css
+  var value = (distance < 0 ? "" : "-") + Math.abs(distance).toString();
+  $snazzySlides.css("transform", "translate(" + value + "px,0)");
+}
+
+function snazzyScrollTxt(distance, duration) {
+  $snazzyTxt.css("transition-duration", (duration / 1000).toFixed(1) + "s");
+  // Inverse the number we set in the css
+  var value = (distance < 0 ? "" : "-") + Math.abs(distance).toString();
+  $snazzyTxt.css("transform", "translate(" + value + "px,0)");
+}
+
 function snazzyPrevImg() {
   snazzyCurrentImg = Math.max(snazzyCurrentImg - 1, 0);
-  if (snazzyImgFx === "slide") {
-    snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
-  } else if (snazzyImgFx === "fade" && snazzyNth !== 1) {
-    snazzyFadeImg();
-  }
-  if (snazzyTxtFx === "slide") {
-    snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
-  } else if (snazzyTxtFx === "fade" && snazzyNth !== 1) {
-    snazzyFadeTxt();
-  } else if (snazzyTxtFx === "none") {
-    snazzyScrollTxt(screenWidth * snazzyCurrentImg, 0);
-  }
+  snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
   if (snazzyNth !== 1) {
     snazzyNth--;
     snazzyAria();
@@ -91,18 +64,8 @@ function snazzyPrevImg() {
 
 function snazzyNextImg() {
   snazzyCurrentImg = Math.min(snazzyCurrentImg + 1, snazzyMaxImgs - 1);
-  if (snazzyImgFx === "slide") {
-    snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
-  } else if (snazzyImgFx === "fade" && snazzyNth !== $snazzyDots.length) {
-    snazzyFadeImg();
-  }
-  if (snazzyTxtFx === "slide") {
-    snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
-  } else if (snazzyTxtFx === "fade" && snazzyNth !== $snazzyDots.length) {
-    snazzyFadeTxt();
-  } else if (snazzyTxtFx === "none") {
-    snazzyScrollTxt(screenWidth * snazzyCurrentImg, 0);
-  }
+  snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
   if (snazzyNth !== $snazzyDots.length) {
     snazzyNth++;
     snazzyAria();
@@ -112,18 +75,8 @@ function snazzyNextImg() {
 
 function snazzyLastImg() {
   snazzyCurrentImg = snazzyMaxImgs - 1;
-  if (snazzyImgFx === "slide") {
-    snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
-  } else if (snazzyImgFx === "fade") {
-    snazzyFadeImg();
-  }
-  if (snazzyTxtFx === "slide") {
-    snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
-  } else if (snazzyTxtFx === "fade") {
-    snazzyFadeTxt();
-  } else if (snazzyTxtFx === "none") {
-    snazzyScrollTxt(screenWidth * snazzyCurrentImg, 0);
-  }
+  snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
   snazzyNth = $snazzyDots.length;
   snazzyAria();
   snazzyHighlight();
@@ -131,36 +84,16 @@ function snazzyLastImg() {
 
 function snazzyFirstImg() {
   snazzyCurrentImg = 0;
-  if (snazzyImgFx === "slide") {
-    snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
-  } else if (snazzyImgFx === "fade") {
-    snazzyFadeImg();
-  }
-  if (snazzyTxtFx === "slide") {
-    snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
-  } else if (snazzyTxtFx === "fade") {
-    snazzyFadeTxt();
-  } else if (snazzyTxtFx === "none") {
-    snazzyScrollTxt(screenWidth * snazzyCurrentImg, 0);
-  }
+  snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
   snazzyNth = 1;
   snazzyAria();
   snazzyHighlight();
 }
 
 function nthImg() {
-  if (snazzyImgFx === "slide") {
-    snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
-  } else if (snazzyImgFx === "fade") {
-    snazzyFadeImg();
-  }
-  if (snazzyTxtFx === "slide") {
-    snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
-  } else if (snazzyTxtFx === "fade") {
-    snazzyFadeTxt();
-  } else if (snazzyTxtFx === "none") {
-    snazzyScrollTxt(screenWidth * snazzyCurrentImg, 0);
-  }
+  snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
   snazzyNth = snazzyCurrentImg + 1;
 }
 
@@ -173,22 +106,20 @@ function swipeStatus(event, phase, direction, distance) {
     or U or D in Y mode then drag */
   if (phase == "move" && (direction == "left" || direction == "right")) {
     var duration = 0;
-    if (direction == "left" && snazzyImgFx !== "fade") {
+    if (direction == "left") {
       snazzyScrollImgs((screenWidth * snazzyCurrentImg) + distance, duration);
-      if (snazzyTxtFx === "slide" && snazzyNth !== $snazzyDots.length) {
+      if (snazzyNth !== $snazzyDots.length) {
         snazzyScrollTxt((screenWidth * snazzyCurrentImg) + distance, duration);
       }
-    } else if (direction == "right" && snazzyImgFx !== "fade") {
+    } else if (direction == "right") {
       snazzyScrollImgs((screenWidth * snazzyCurrentImg) - distance, duration);
-      if (snazzyTxtFx === "slide" && snazzyNth !== 1) {
+      if (snazzyNth !== 1) {
         snazzyScrollTxt((screenWidth * snazzyCurrentImg) - distance, duration);
       }
     }
-  } else if (phase == "cancel" && snazzyImgFx !== "fade") {
+  } else if (phase == "cancel") {
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
-    if (snazzyTxtFx === "slide") {
-      snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
-    }
+    snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
   } else if (phase == "end") {
     if (direction == "right") {
       snazzyPrevImg();
