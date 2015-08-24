@@ -157,6 +157,7 @@ $(window).on("load resize",function(e){
   $snazzyTxt.width($screenWidth);
   // Move the image back into position
   snazzyScrollImgs(snazzyImgWidth * snazzyCurrentImg, 0);
+  snazzyScrollTxt(snazzyImgWidth * snazzyCurrentImg, 0);
 });
 
 //Make the enter key the same as a click for accessibility
