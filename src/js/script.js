@@ -1,7 +1,7 @@
 // Variables
 var snazzyImgWidth;
 var snazzyTxtWidth;
-var snazzyTxtFx = "slide";
+var snazzyTxtFx = "fade";
 var snazzyCurrentImg = 0;
 var snazzyMaxImgs = 3;
 var snazzyScrollSpeed = 500;
@@ -39,6 +39,13 @@ function snazzyScrollTxt(distance, duration) {
   $snazzyTxt.css("transform", "translate(" + value + "px,0)");
 }
 
+function snazzyFadeTxt() {
+  $snazzyTxt.animate({opacity: 0}, (snazzyScrollSpeed/2), function(){
+    $snazzyTxt.css("transform", "translate(" + (snazzyCurrentImg * snazzyTxtWidth * -1) + "px,0)");
+    $snazzyTxt.animate({opacity: 1}, (snazzyScrollSpeed/2));
+  });
+}
+
 function snazzyAria() {
   $snazzyDots.removeAttr("aria-selected");
   $(".snazzy-controls__dot:nth-child(" + snazzyNth + ")").attr("aria-selected", "true");
@@ -58,6 +65,8 @@ function snazzyPrevImg() {
   snazzyScrollImgs(snazzyImgWidth * snazzyCurrentImg, snazzyScrollSpeed);
   if (snazzyTxtFx === "slide") {
     snazzyScrollTxt(snazzyImgWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  } else if (snazzyTxtFx === "fade" && snazzyNth !== 1) {
+    snazzyFadeTxt();
   }
   if (snazzyNth !== 1) {
     snazzyNth--;
@@ -71,6 +80,8 @@ function snazzyNextImg() {
   snazzyScrollImgs(snazzyImgWidth * snazzyCurrentImg, snazzyScrollSpeed);
   if (snazzyTxtFx === "slide") {
     snazzyScrollTxt(snazzyImgWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  } else if (snazzyTxtFx === "fade" && snazzyNth !== $snazzyDots.length) {
+    snazzyFadeTxt();
   }
   if (snazzyNth !== $snazzyDots.length) {
     snazzyNth++;
@@ -84,6 +95,8 @@ function snazzyLastImg() {
   snazzyScrollImgs(snazzyImgWidth * snazzyCurrentImg, snazzyScrollSpeed);
   if (snazzyTxtFx === "slide") {
     snazzyScrollTxt(snazzyImgWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  } else if (snazzyTxtFx === "fade") {
+    snazzyFadeTxt();
   }
   snazzyNth = $snazzyDots.length;
   snazzyAria();
@@ -95,6 +108,8 @@ function snazzyFirstImg() {
   snazzyScrollImgs(snazzyImgWidth * snazzyCurrentImg, snazzyScrollSpeed);
   if (snazzyTxtFx === "slide") {
     snazzyScrollTxt(snazzyImgWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  } else if (snazzyTxtFx === "fade") {
+    snazzyFadeTxt();
   }
   snazzyNth = 1;
   snazzyAria();
@@ -105,6 +120,8 @@ function nthImg() {
   snazzyScrollImgs(snazzyImgWidth * snazzyCurrentImg, snazzyScrollSpeed);
   if (snazzyTxtFx === "slide") {
     snazzyScrollTxt(snazzyImgWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  } else if (snazzyTxtFx === "fade") {
+    snazzyFadeTxt();
   }
   snazzyNth = snazzyCurrentImg + 1;
 }
