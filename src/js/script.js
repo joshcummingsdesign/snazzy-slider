@@ -106,18 +106,12 @@ end: we animate to the next image */
 function swipeStatus(event, phase, direction, distance) {
   /*If we are moving before swipe and we are going L or R in X mode,
     or U or D in Y mode then drag */
-  if (phase == "move" && (direction == "left" || direction == "right")) {
+  if (phase == "move" && (direction == "left" || direction == "right") && snazzyImgFx === "slide") {
     var duration = 0;
     if (direction == "left") {
       snazzyScrollImgs((screenWidth * snazzyCurrentImg) + distance, duration);
-      if (snazzyNth !== $snazzyDots.length) {
-        snazzyScrollTxt((screenWidth * snazzyCurrentImg) + distance, duration);
-      }
     } else if (direction == "right") {
       snazzyScrollImgs((screenWidth * snazzyCurrentImg) - distance, duration);
-      if (snazzyNth !== 1) {
-        snazzyScrollTxt((screenWidth * snazzyCurrentImg) - distance, duration);
-      }
     }
   } else if (phase == "cancel") {
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
