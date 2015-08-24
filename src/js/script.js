@@ -1,6 +1,6 @@
 // Variables
 var screenWidth;
-var snazzyImgFx = "slide";
+var snazzyImgFx = "fade";
 var snazzyTxtFx = "slide";
 var snazzyCurrentImg = 0;
 var snazzyMaxImgs = 3;
@@ -46,6 +46,13 @@ function snazzyScrollImgs(distance, duration) {
   $snazzySlides.css("transform", "translate(" + value + "px,0)");
 }
 
+function snazzyFadeImgs() {
+  $snazzySlides.animate({opacity: 0}, (snazzyScrollSpeed/2), function(){
+    snazzyScrollImgs(screenWidth * snazzyCurrentImg, 0);
+    $snazzySlides.animate({opacity: 1}, (snazzyScrollSpeed/2));
+  });
+}
+
 function snazzyScrollTxt(distance, duration) {
   $snazzyTxt.css("transition-duration", (duration / 1000).toFixed(1) + "s");
   // Inverse the number we set in the css
@@ -55,8 +62,13 @@ function snazzyScrollTxt(distance, duration) {
 
 function snazzyPrevImg() {
   snazzyCurrentImg = Math.max(snazzyCurrentImg - 1, 0);
-  snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
-  snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  if (snazzyImgFx === "fade" && snazzyTxtFx === "slide") {
+    snazzyFadeImgs();
+    snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  } else {
+    snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+    snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  }
   if (snazzyNth !== 1) {
     snazzyNth--;
     snazzyAria();
@@ -66,8 +78,13 @@ function snazzyPrevImg() {
 
 function snazzyNextImg() {
   snazzyCurrentImg = Math.min(snazzyCurrentImg + 1, snazzyMaxImgs - 1);
-  snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
-  snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  if (snazzyImgFx === "fade" && snazzyTxtFx === "slide") {
+    snazzyFadeImgs();
+    snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  } else {
+    snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+    snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  }
   if (snazzyNth !== $snazzyDots.length) {
     snazzyNth++;
     snazzyAria();
@@ -77,8 +94,13 @@ function snazzyNextImg() {
 
 function snazzyLastImg() {
   snazzyCurrentImg = snazzyMaxImgs - 1;
-  snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
-  snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  if (snazzyImgFx === "fade" && snazzyTxtFx === "slide") {
+    snazzyFadeImgs();
+    snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  } else {
+    snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+    snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  }
   snazzyNth = $snazzyDots.length;
   snazzyAria();
   snazzyHighlight();
@@ -86,16 +108,26 @@ function snazzyLastImg() {
 
 function snazzyFirstImg() {
   snazzyCurrentImg = 0;
-  snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
-  snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  if (snazzyImgFx === "fade" && snazzyTxtFx === "slide") {
+    snazzyFadeImgs();
+    snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  } else {
+    snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+    snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  }
   snazzyNth = 1;
   snazzyAria();
   snazzyHighlight();
 }
 
 function nthImg() {
-  snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
-  snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  if (snazzyImgFx === "fade" && snazzyTxtFx === "slide") {
+    snazzyFadeImgs();
+    snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  } else {
+    snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+    snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  }
   snazzyNth = snazzyCurrentImg + 1;
 }
 
@@ -113,14 +145,22 @@ function swipeStatus(event, phase, direction, distance) {
     } else if (direction == "right") {
       snazzyScrollImgs((screenWidth * snazzyCurrentImg) - distance, duration);
     }
-  } else if (phase == "cancel") {
+  } else if (phase == "cancel" && snazzyImgFx === "slide") {
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
     snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
   } else if (phase == "end") {
     if (direction == "right") {
-      snazzyPrevImg();
+      if (snazzyImgFx === "fade" && snazzyNth === 1) {
+        snazzyLastImg();
+      } else {
+        snazzyPrevImg();
+      }
     } else if (direction == "left") {
-      snazzyNextImg();
+      if (snazzyImgFx === "fade" && snazzyNth === $snazzyDots.length) {
+        snazzyFirstImg();
+      } else {
+        snazzyNextImg();
+      }
     }
   }
 }
