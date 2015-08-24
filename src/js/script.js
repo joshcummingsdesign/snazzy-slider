@@ -1,5 +1,7 @@
 // Variables
 var snazzyImgWidth;
+var snazzyTxtWidth;
+var snazzyTxtFx = "slide";
 var snazzyCurrentImg = 0;
 var snazzyMaxImgs = 3;
 var snazzyScrollSpeed = 500;
@@ -18,36 +20,11 @@ var $snazzyControls = $(".snazzy-controls");
 var $snazzyLftBtn = $snazzyControls.find(".snazzy-controls__left-btn");
 var $snazzyRtBtn = $snazzyControls.find(".snazzy-controls__right-btn");
 var $snazzyDots = $snazzyControls.find(".snazzy-controls__dot");
-var $snazzyText = $(".snazzy-text__project");
+var $snazzyTxt = $(".snazzy-text__project");
 var $focusItems = $(".snazzy-controls *, .site-links__item");
 
 // Functions
-/*Catch each phase of the swipe,
-move: we drag the div,
-cancel: we animate back to where we were,
-end: we animate to the next image */
-function swipeStatus(event, phase, direction, distance) {
-  /*If we are moving before swipe and we are going L or R in X mode,
-    or U or D in Y mode then drag */
-  if (phase == "move" && (direction == "left" || direction == "right")) {
-    var duration = 0;
-    if (direction == "left") {
-      snazzyScrollImgs((snazzyImgWidth * snazzyCurrentImg) + distance, duration);
-    } else if (direction == "right") {
-      snazzyScrollImgs((snazzyImgWidth * snazzyCurrentImg) - distance, duration);
-    }
-  } else if (phase == "cancel") {
-    snazzyScrollImgs(snazzyImgWidth * snazzyCurrentImg, snazzyScrollSpeed);
-  } else if (phase == "end") {
-    if (direction == "right") {
-      snazzyPrevImg();
-    } else if (direction == "left") {
-      snazzyNextImg();
-    }
-  }
-}
-
-// Manually update the position of the slides on drag for Snazzy Slider
+// Manually update the position of the slides on drag
 function snazzyScrollImgs(distance, duration) {
   $snazzySlides.css("transition-duration", (duration / 1000).toFixed(1) + "s");
   // Inverse the number we set in the css
@@ -55,10 +32,17 @@ function snazzyScrollImgs(distance, duration) {
   $snazzySlides.css("transform", "translate(" + value + "px,0)");
 }
 
+function snazzyScrollTxt(distance, duration) {
+  $snazzyTxt.css("transition-duration", (duration / 1000).toFixed(1) + "s");
+  // Inverse the number we set in the css
+  var value = (distance < 0 ? "" : "-") + Math.abs(distance).toString();
+  $snazzyTxt.css("transform", "translate(" + value + "px,0)");
+}
+
 function snazzyAria() {
   $snazzyDots.removeAttr("aria-selected");
   $(".snazzy-controls__dot:nth-child(" + snazzyNth + ")").attr("aria-selected", "true");
-  $snazzyText.attr("aria-hidden", "true");
+  $snazzyTxt.attr("aria-hidden", "true");
   $(".snazzy-text__project:nth-child(" + snazzyNth + ")").attr("aria-hidden", "false");
   $snazzyImg.attr("aria-hidden", "true");
   $(".snazzy-slider__image:nth-child(" + snazzyNth + ")").attr("aria-hidden", "false");
@@ -72,6 +56,9 @@ function snazzyHighlight() {
 function snazzyPrevImg() {
   snazzyCurrentImg = Math.max(snazzyCurrentImg - 1, 0);
   snazzyScrollImgs(snazzyImgWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  if (snazzyTxtFx === "slide") {
+    snazzyScrollTxt(snazzyImgWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  }
   if (snazzyNth !== 1) {
     snazzyNth--;
     snazzyAria();
@@ -82,6 +69,9 @@ function snazzyPrevImg() {
 function snazzyNextImg() {
   snazzyCurrentImg = Math.min(snazzyCurrentImg + 1, snazzyMaxImgs - 1);
   snazzyScrollImgs(snazzyImgWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  if (snazzyTxtFx === "slide") {
+    snazzyScrollTxt(snazzyImgWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  }
   if (snazzyNth !== $snazzyDots.length) {
     snazzyNth++;
     snazzyAria();
@@ -92,6 +82,9 @@ function snazzyNextImg() {
 function snazzyLastImg() {
   snazzyCurrentImg = snazzyMaxImgs - 1;
   snazzyScrollImgs(snazzyImgWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  if (snazzyTxtFx === "slide") {
+    snazzyScrollTxt(snazzyImgWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  }
   snazzyNth = $snazzyDots.length;
   snazzyAria();
   snazzyHighlight();
@@ -100,9 +93,54 @@ function snazzyLastImg() {
 function snazzyFirstImg() {
   snazzyCurrentImg = 0;
   snazzyScrollImgs(snazzyImgWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  if (snazzyTxtFx === "slide") {
+    snazzyScrollTxt(snazzyImgWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  }
   snazzyNth = 1;
   snazzyAria();
   snazzyHighlight();
+}
+
+function nthImg() {
+  snazzyScrollImgs(snazzyImgWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  if (snazzyTxtFx === "slide") {
+    snazzyScrollTxt(snazzyImgWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  }
+  snazzyNth = snazzyCurrentImg + 1;
+}
+
+/*Catch each phase of the swipe,
+move: we drag the div,
+cancel: we animate back to where we were,
+end: we animate to the next image */
+function swipeStatus(event, phase, direction, distance) {
+  /*If we are moving before swipe and we are going L or R in X mode,
+    or U or D in Y mode then drag */
+  if (phase == "move" && (direction == "left" || direction == "right")) {
+    var duration = 0;
+    if (direction == "left") {
+      snazzyScrollImgs((snazzyImgWidth * snazzyCurrentImg) + distance, duration);
+      if (snazzyTxtFx === "slide") {
+        snazzyScrollTxt((snazzyImgWidth * snazzyCurrentImg) + distance, duration);
+      }
+    } else if (direction == "right") {
+      snazzyScrollImgs((snazzyImgWidth * snazzyCurrentImg) - distance, duration);
+      if (snazzyTxtFx === "slide") {
+        snazzyScrollTxt((snazzyImgWidth * snazzyCurrentImg) - distance, duration);
+      }
+    }
+  } else if (phase == "cancel") {
+    snazzyScrollImgs(snazzyImgWidth * snazzyCurrentImg, snazzyScrollSpeed);
+    if (snazzyTxtFx === "slide") {
+      snazzyScrollTxt(snazzyImgWidth * snazzyCurrentImg, snazzyScrollSpeed);
+    }
+  } else if (phase == "end") {
+    if (direction == "right") {
+      snazzyPrevImg();
+    } else if (direction == "left") {
+      snazzyNextImg();
+    }
+  }
 }
 
 // Initialize TouchSwipe
@@ -115,6 +153,8 @@ $(window).on("load resize",function(e){
   $screenWidth = $(window).width();
   snazzyImgWidth = $screenWidth;
   $snazzyImg.width($screenWidth);
+  snazzyTxtWidth = $screenWidth;
+  $snazzyTxt.width($screenWidth);
   // Move the image back into position
   snazzyScrollImgs(snazzyImgWidth * snazzyCurrentImg, 0);
 });
@@ -130,10 +170,8 @@ $focusItems.keydown(function(event) {
 $snazzyLftBtn.click(function() {
   // If it's not the first image
   if (snazzyNth !== 1) {
-    // Go to the previous image
     snazzyPrevImg();
   } else {
-    // Go to the last image
     snazzyLastImg();
   }
 });
@@ -142,10 +180,8 @@ $snazzyLftBtn.click(function() {
 $snazzyRtBtn.click(function() {
   // If it's not the last image
   if (snazzyNth !== $snazzyDots.length) {
-    // Go to the next image
     snazzyNextImg();
   } else {
-    // Go to the first image
     snazzyFirstImg();
   }
 });
@@ -155,9 +191,10 @@ $snazzyDots.click(function() {
   // Highligth this dot
   $snazzyDots.removeClass("snazzy-dot-highlighted");
   $(this).addClass("snazzy-dot-highlighted");
-  // Go to nth image
+  // Get dot number
   snazzyCurrentImg = $(this).index();
-  snazzyScrollImgs(snazzyImgWidth * snazzyCurrentImg, snazzyScrollSpeed);
-  snazzyNth = snazzyCurrentImg + 1;
+  // Go to nth image
+  nthImg();
+  // Set ARIA attributes
   snazzyAria();
 });

@@ -26,7 +26,7 @@
   position: relative;
   z-index: 3;
   cursor: default;
-  padding: 0 0 10px .75em;
+  padding: 0 0 10px .625em;
   max-width: 1080px;
   margin: -50px auto 0;
   @include no-select();
@@ -54,27 +54,12 @@
   list-style-type: none;
 }
 
-/* Slider Text
-.snazzy-text {
-  box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
-  position: relative;
-  z-index: 3;
-  @include e(container) {
-    max-width: 768px;
-    margin: 0 auto;
-    padding: 1em 1em 1.5em;
-  }
-  @include e(project) {
-    display: none;
-  }
-}*/
-
 .snazzy-text {
   box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
   position: relative;
   z-index: 3;
   @include e(background) {
-    overflow-y: hidden;
+    overflow: hidden;
   }
   @include e(container) {
     width: 9999px;
@@ -85,5 +70,7 @@
   }
   @include e(project-text) {
     padding: 1em 1em 1.5em;
+    max-width: 768px;
+    margin: 0 auto;
   }
 }
