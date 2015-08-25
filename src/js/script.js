@@ -1,6 +1,6 @@
 // Variables
 var screenWidth;
-var snazzyImgFx = "slide";
+var snazzyImgFx = "fade";
 var snazzyTxtFx = "fade";
 var snazzyCurrentImg = 0;
 var snazzyMaxImgs = 3;
@@ -10,7 +10,7 @@ var swipeOptions = {
     triggerOnTouchEnd: true,
     swipeStatus: swipeStatus,
     allowPageScroll: "vertical",
-    threshold: 75
+    threshold: 70
 };
 
 // Cache the DOM
@@ -21,6 +21,7 @@ var $snazzyLftBtn = $snazzyControls.find(".snazzy-controls__left-btn");
 var $snazzyRtBtn = $snazzyControls.find(".snazzy-controls__right-btn");
 var $snazzyDots = $snazzyControls.find(".snazzy-controls__dot");
 var $snazzyTxt = $(".snazzy-text__project");
+var $snazzyBoth = $(".snazzy-slider__slides, .snazzy-text__project");
 var $focusItems = $(".snazzy-controls *, .site-links__item");
 
 // Functions
@@ -67,6 +68,14 @@ function snazzyFadeTxt() {
   });
 }
 
+function snazzyFadeBoth() {
+  $snazzyBoth.animate({opacity: 0}, (snazzyScrollSpeed/2), function(){
+    snazzyScrollImgs(screenWidth * snazzyCurrentImg, 0);
+    snazzyScrollTxt(screenWidth * snazzyCurrentImg, 0);
+    $snazzyBoth.animate({opacity: 1}, (snazzyScrollSpeed/2));
+  });
+}
+
 function snazzyPrevImg() {
   snazzyCurrentImg = Math.max(snazzyCurrentImg - 1, 0);
   if (snazzyImgFx === "fade" && snazzyTxtFx === "slide") {
@@ -77,6 +86,8 @@ function snazzyPrevImg() {
       snazzyFadeTxt();
     }
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  } else if (snazzyImgFx === "fade" && snazzyTxtFx === "fade") {
+    snazzyFadeBoth();
   } else {
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
     snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
@@ -98,6 +109,8 @@ function snazzyNextImg() {
       snazzyFadeTxt();
     }
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  } else if (snazzyImgFx === "fade" && snazzyTxtFx === "fade") {
+    snazzyFadeBoth();
   } else {
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
     snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
@@ -117,6 +130,8 @@ function snazzyLastImg() {
   } else if (snazzyImgFx === "slide" && snazzyTxtFx === "fade") {
     snazzyFadeTxt();
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  } else if (snazzyImgFx === "fade" && snazzyTxtFx === "fade") {
+    snazzyFadeBoth();
   } else {
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
     snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
@@ -134,6 +149,8 @@ function snazzyFirstImg() {
   } else if (snazzyImgFx === "slide" && snazzyTxtFx === "fade") {
     snazzyFadeTxt();
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  } else if (snazzyImgFx === "fade" && snazzyTxtFx === "fade") {
+    snazzyFadeBoth();
   } else {
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
     snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
@@ -150,6 +167,8 @@ function nthImg() {
   } else if (snazzyImgFx === "slide" && snazzyTxtFx === "fade") {
     snazzyFadeTxt();
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  } else if (snazzyImgFx === "fade" && snazzyTxtFx === "fade") {
+    snazzyFadeBoth();
   } else {
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
     snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
