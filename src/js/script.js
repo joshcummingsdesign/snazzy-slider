@@ -1,6 +1,6 @@
 // Variables
 var screenWidth;
-var snazzyImgFx = "slide";
+var snazzyImgFx = "fade";
 var snazzyTxtFx = "none";
 var snazzyCurrentImg = 0;
 var snazzyMaxImgs = 3;
@@ -88,7 +88,10 @@ function snazzyPrevImg() {
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
   } else if (snazzyImgFx === "fade" && snazzyTxtFx === "fade") {
     snazzyFadeBoth();
-  } else if (snazzyTxtFx === "none") {
+  } else if (snazzyImgFx === "fade" && snazzyTxtFx === "none") {
+    snazzyFadeImgs();
+    snazzyScrollTxt(screenWidth * snazzyCurrentImg, 0);
+  } else if (snazzyImgFx === "slide" && snazzyTxtFx === "none") {
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
     snazzyScrollTxt(screenWidth * snazzyCurrentImg, 0);
   } else {
@@ -114,7 +117,10 @@ function snazzyNextImg() {
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
   } else if (snazzyImgFx === "fade" && snazzyTxtFx === "fade") {
     snazzyFadeBoth();
-  } else if (snazzyTxtFx === "none") {
+  } else if (snazzyImgFx === "fade" && snazzyTxtFx === "none") {
+    snazzyFadeImgs();
+    snazzyScrollTxt(screenWidth * snazzyCurrentImg, 0);
+  } else if (snazzyImgFx === "slide" && snazzyTxtFx === "none") {
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
     snazzyScrollTxt(screenWidth * snazzyCurrentImg, 0);
   } else {
@@ -138,7 +144,10 @@ function snazzyLastImg() {
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
   } else if (snazzyImgFx === "fade" && snazzyTxtFx === "fade") {
     snazzyFadeBoth();
-  } else if (snazzyTxtFx === "none") {
+  } else if (snazzyImgFx === "fade" && snazzyTxtFx === "none") {
+    snazzyFadeImgs();
+    snazzyScrollTxt(screenWidth * snazzyCurrentImg, 0);
+  } else if (snazzyImgFx === "slide" && snazzyTxtFx === "none") {
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
     snazzyScrollTxt(screenWidth * snazzyCurrentImg, 0);
   } else {
@@ -160,7 +169,10 @@ function snazzyFirstImg() {
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
   } else if (snazzyImgFx === "fade" && snazzyTxtFx === "fade") {
     snazzyFadeBoth();
-  } else if (snazzyTxtFx === "none") {
+  } else if (snazzyImgFx === "fade" && snazzyTxtFx === "none") {
+    snazzyFadeImgs();
+    snazzyScrollTxt(screenWidth * snazzyCurrentImg, 0);
+  } else if (snazzyImgFx === "slide" && snazzyTxtFx === "none") {
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
     snazzyScrollTxt(screenWidth * snazzyCurrentImg, 0);
   } else {
@@ -181,7 +193,10 @@ function nthImg() {
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
   } else if (snazzyImgFx === "fade" && snazzyTxtFx === "fade") {
     snazzyFadeBoth();
-  } else if (snazzyTxtFx === "none") {
+  } else if (snazzyImgFx === "fade" && snazzyTxtFx === "none") {
+    snazzyFadeImgs();
+    snazzyScrollTxt(screenWidth * snazzyCurrentImg, 0);
+  } else if (snazzyImgFx === "slide" && snazzyTxtFx === "none") {
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
     snazzyScrollTxt(screenWidth * snazzyCurrentImg, 0);
   } else {
