@@ -6,6 +6,7 @@ var snazzyCurrentImg = 0;
 var snazzyMaxImgs = 3;
 var snazzyScrollSpeed = 500;
 var snazzyNth = 1;
+var snazzyTimer = 8000;
 var swipeOptions = {
     triggerOnTouchEnd: true,
     swipeStatus: swipeStatus,
@@ -293,3 +294,8 @@ $snazzyDots.click(function() {
   // Set ARIA attributes
   snazzyAria();
 });
+
+// Advnace the slides on snazzyTimer
+setInterval(function() {
+  $snazzyRtBtn.trigger("click");
+}, snazzyTimer);
