@@ -1,7 +1,7 @@
 // Variables
 var screenWidth;
-var snazzyImgFx = "fade";
-var snazzyTxtFx = "fade";
+var snazzyImgFx = "slide";
+var snazzyTxtFx = "none";
 var snazzyCurrentImg = 0;
 var snazzyMaxImgs = 3;
 var snazzyScrollSpeed = 500;
@@ -88,6 +88,9 @@ function snazzyPrevImg() {
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
   } else if (snazzyImgFx === "fade" && snazzyTxtFx === "fade") {
     snazzyFadeBoth();
+  } else if (snazzyTxtFx === "none") {
+    snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+    snazzyScrollTxt(screenWidth * snazzyCurrentImg, 0);
   } else {
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
     snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
@@ -111,6 +114,9 @@ function snazzyNextImg() {
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
   } else if (snazzyImgFx === "fade" && snazzyTxtFx === "fade") {
     snazzyFadeBoth();
+  } else if (snazzyTxtFx === "none") {
+    snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+    snazzyScrollTxt(screenWidth * snazzyCurrentImg, 0);
   } else {
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
     snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
@@ -132,6 +138,9 @@ function snazzyLastImg() {
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
   } else if (snazzyImgFx === "fade" && snazzyTxtFx === "fade") {
     snazzyFadeBoth();
+  } else if (snazzyTxtFx === "none") {
+    snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+    snazzyScrollTxt(screenWidth * snazzyCurrentImg, 0);
   } else {
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
     snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
@@ -151,6 +160,9 @@ function snazzyFirstImg() {
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
   } else if (snazzyImgFx === "fade" && snazzyTxtFx === "fade") {
     snazzyFadeBoth();
+  } else if (snazzyTxtFx === "none") {
+    snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+    snazzyScrollTxt(screenWidth * snazzyCurrentImg, 0);
   } else {
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
     snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
@@ -169,6 +181,9 @@ function nthImg() {
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
   } else if (snazzyImgFx === "fade" && snazzyTxtFx === "fade") {
     snazzyFadeBoth();
+  } else if (snazzyTxtFx === "none") {
+    snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+    snazzyScrollTxt(screenWidth * snazzyCurrentImg, 0);
   } else {
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
     snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
