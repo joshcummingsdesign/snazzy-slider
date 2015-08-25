@@ -16,7 +16,6 @@ var swipeOptions = {
 };
 
 // Cache the DOM
-var $snazzySlider = $(".snazzy-slider, .snazzy-controls");
 var $snazzySlides = $(".snazzy-slider__slides");
 var $snazzyImg = $snazzySlides.find(".snazzy-slider__image");
 var $snazzyControls = $(".snazzy-controls");
@@ -285,7 +284,10 @@ $focusItems.keydown(function(event) {
 });
 
 // Stop SnazzyTimer on interaction
-$snazzySlider.click(function() {
+$snazzySlides.on( "swipe", function() {
+  stopSnazzyTimer();
+});
+$snazzyControls.click(function() {
   stopSnazzyTimer();
 });
 
