@@ -287,7 +287,7 @@ $focusItems.keydown(function(event) {
 $snazzySlides.on( "swipe", function() {
   stopSnazzyTimer();
 });
-$snazzyControls.click(function() {
+$snazzyControls.children().bind( "click focus", function() {
   stopSnazzyTimer();
 });
 
