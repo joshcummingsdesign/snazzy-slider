@@ -7,6 +7,7 @@ var snazzyMaxImgs = 3;
 var snazzyScrollSpeed = 500;
 var snazzyNth = 1;
 var snazzyTimer = 8000;
+var snazzyInterval;
 var swipeOptions = {
     triggerOnTouchEnd: true,
     swipeStatus: swipeStatus,
@@ -15,6 +16,7 @@ var swipeOptions = {
 };
 
 // Cache the DOM
+var $snazzySlider = $(".snazzy-slider, .snazzy-controls");
 var $snazzySlides = $(".snazzy-slider__slides");
 var $snazzyImg = $snazzySlides.find(".snazzy-slider__image");
 var $snazzyControls = $(".snazzy-controls");
@@ -240,9 +242,29 @@ function swipeStatus(event, phase, direction, distance) {
   }
 }
 
-// Initialize TouchSwipe
+// Start SnazzyTimer
+function startSnazzyTimer() {
+  snazzyInterval = setInterval(function() {
+    // If it's not the last image
+    if (snazzyNth !== $snazzyDots.length) {
+      snazzyNextImg();
+    } else {
+      snazzyFirstImg();
+    }
+  }, snazzyTimer);
+}
+
+// Stop SnazzyTimer
+function stopSnazzyTimer() {
+  clearInterval(snazzyInterval);
+}
+
+// On load
 $(function () {
+  // Initialize TouchSwipe
   $snazzySlides.swipe(swipeOptions);
+  // Start SnazzyTimer
+  startSnazzyTimer();
 });
 
 // Set the Snazzy Slider image width on load and resize
@@ -260,6 +282,11 @@ $focusItems.keydown(function(event) {
     if((event.keyCode==13) || (event.keyCode==32)) {
        $(this).click();
     }
+});
+
+// Stop SnazzyTimer on interaction
+$snazzySlider.click(function() {
+  stopSnazzyTimer();
 });
 
 // On left button click
@@ -294,8 +321,3 @@ $snazzyDots.click(function() {
   // Set ARIA attributes
   snazzyAria();
 });
-
-// Advnace the slides on snazzyTimer
-setInterval(function() {
-  $snazzyRtBtn.trigger("click");
-}, snazzyTimer);
