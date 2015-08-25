@@ -1,7 +1,7 @@
 // Variables
 var screenWidth;
-var snazzyImgFx = "fade";
-var snazzyTxtFx = "slide";
+var snazzyImgFx = "slide";
+var snazzyTxtFx = "fade";
 var snazzyCurrentImg = 0;
 var snazzyMaxImgs = 3;
 var snazzyScrollSpeed = 500;
@@ -46,13 +46,6 @@ function snazzyScrollImgs(distance, duration) {
   $snazzySlides.css("transform", "translate(" + value + "px,0)");
 }
 
-function snazzyFadeImgs() {
-  $snazzySlides.animate({opacity: 0}, (snazzyScrollSpeed/2), function(){
-    snazzyScrollImgs(screenWidth * snazzyCurrentImg, 0);
-    $snazzySlides.animate({opacity: 1}, (snazzyScrollSpeed/2));
-  });
-}
-
 function snazzyScrollTxt(distance, duration) {
   $snazzyTxt.css("transition-duration", (duration / 1000).toFixed(1) + "s");
   // Inverse the number we set in the css
@@ -60,11 +53,30 @@ function snazzyScrollTxt(distance, duration) {
   $snazzyTxt.css("transform", "translate(" + value + "px,0)");
 }
 
+function snazzyFadeImgs() {
+  $snazzySlides.animate({opacity: 0}, (snazzyScrollSpeed/2), function(){
+    snazzyScrollImgs(screenWidth * snazzyCurrentImg, 0);
+    $snazzySlides.animate({opacity: 1}, (snazzyScrollSpeed/2));
+  });
+}
+
+function snazzyFadeTxt() {
+  $snazzyTxt.animate({opacity: 0}, (snazzyScrollSpeed/2), function(){
+    snazzyScrollTxt(screenWidth * snazzyCurrentImg, 0);
+    $snazzyTxt.animate({opacity: 1}, (snazzyScrollSpeed/2));
+  });
+}
+
 function snazzyPrevImg() {
   snazzyCurrentImg = Math.max(snazzyCurrentImg - 1, 0);
   if (snazzyImgFx === "fade" && snazzyTxtFx === "slide") {
     snazzyFadeImgs();
     snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  } else if (snazzyImgFx === "slide" && snazzyTxtFx === "fade") {
+    if (snazzyNth !== 1) {
+      snazzyFadeTxt();
+    }
+    snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
   } else {
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
     snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
@@ -81,6 +93,11 @@ function snazzyNextImg() {
   if (snazzyImgFx === "fade" && snazzyTxtFx === "slide") {
     snazzyFadeImgs();
     snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  } else if (snazzyImgFx === "slide" && snazzyTxtFx === "fade") {
+    if (snazzyNth !== $snazzyDots.length) {
+      snazzyFadeTxt();
+    }
+    snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
   } else {
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
     snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
@@ -97,6 +114,9 @@ function snazzyLastImg() {
   if (snazzyImgFx === "fade" && snazzyTxtFx === "slide") {
     snazzyFadeImgs();
     snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  } else if (snazzyImgFx === "slide" && snazzyTxtFx === "fade") {
+    snazzyFadeTxt();
+    snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
   } else {
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
     snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
@@ -111,6 +131,9 @@ function snazzyFirstImg() {
   if (snazzyImgFx === "fade" && snazzyTxtFx === "slide") {
     snazzyFadeImgs();
     snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  } else if (snazzyImgFx === "slide" && snazzyTxtFx === "fade") {
+    snazzyFadeTxt();
+    snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
   } else {
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
     snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
@@ -124,6 +147,9 @@ function nthImg() {
   if (snazzyImgFx === "fade" && snazzyTxtFx === "slide") {
     snazzyFadeImgs();
     snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
+  } else if (snazzyImgFx === "slide" && snazzyTxtFx === "fade") {
+    snazzyFadeTxt();
+    snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
   } else {
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
     snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
@@ -147,7 +173,6 @@ function swipeStatus(event, phase, direction, distance) {
     }
   } else if (phase == "cancel" && snazzyImgFx === "slide") {
     snazzyScrollImgs(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
-    snazzyScrollTxt(screenWidth * snazzyCurrentImg, snazzyScrollSpeed);
   } else if (phase == "end") {
     if (direction == "right") {
       if (snazzyImgFx === "fade" && snazzyNth === 1) {
