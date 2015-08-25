@@ -1,7 +1,7 @@
 // Variables
 var screenWidth;
-var snazzyImgFx = "fade";
-var snazzyTxtFx = "none";
+var snazzyImgFx = "slide";
+var snazzyTxtFx = "slide";
 var snazzyCurrentImg = 0;
 var snazzyMaxImgs = 3;
 var snazzyScrollSpeed = 500;
