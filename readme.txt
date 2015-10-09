@@ -16,7 +16,7 @@ Create elegant, responsive, and accessible sliders for your WordPress site.
 
 With all the slider plugins available, why Snazzy Slider?
 Pure and simple, Snazzy Slider is fast, responsive, accessible, flexible, and completely open source.
-Snazzy Slider is ready for touch devices like smartphones and tablets, and gives you the option to display excerpts of any posts you'd like.
+Snazzy Slider is ready for touch devices like smartphones and tablets, and gives you the option to display excerpts from any post you'd like.
 
 **Features include:**
 
