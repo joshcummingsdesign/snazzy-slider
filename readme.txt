@@ -12,7 +12,7 @@ Create elegant, responsive, and accessible sliders for your WordPress site.
 
 == Description ==
 
-[Snazzy Slider](http://joshcummingsdesign.com/snazzy-slider) allows you to quickly and easily create beautiful, responsive, mobile-friendly sliders that are accessible and customizable.
+[Snazzy Slider](https://github.com/joshcummingsdesign/snazzy-slider) allows you to quickly and easily create beautiful, responsive, mobile-friendly sliders that are accessible and customizable.
 
 With all the slider plugins available, why Snazzy Slider?
 Pure and simple, Snazzy Slider is fast, responsive, accessible, flexible, and completely open source.
@@ -33,9 +33,9 @@ Snazzy Slider is ready for touch devices like smartphones and tablets, and gives
 * Unlimited sliders (one per page, see more below).
 * All features are completely free and open source.
 
-[youtube http://www.youtube.com/watch?v=7EiKx_WSesk]
+[youtube http://www.youtube.com]
 
-[View Demo](http://joshcummingsdesign.com/snazzy-slider)
+[View Demo](http://joshcummingsdesign.com)
 
 Thank you for using Snazzy Slider! Please reach out with any questions, comments, or feedback.
 
@@ -49,7 +49,7 @@ By [Josh Cummings Design](http://joshcummingsdesign.com).
 4. Customize your slider by clicking the edit button.
 5. After you have configured your slider, copy and paste the shortcode onto any page you'd like!
 
-[youtube http://www.youtube.com/watch?v=7EiKx_WSesk]
+[youtube http://www.youtube.com]
 
 == Frequently Asked Questions ==
 
