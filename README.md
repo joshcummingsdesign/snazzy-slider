@@ -30,3 +30,6 @@ Snazzy Slider is ready for touch devices like smartphones and tablets, and gives
 
 ## Thank You
 [Matt Bryson](https://github.com/mattbryson) for [TouchSwipe](https://github.com/mattbryson/TouchSwipe-Jquery-Plugin).
+
+## Donate
+[Click here to support this project.](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Y9JDB7FQSB9B4)
