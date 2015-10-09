@@ -228,8 +228,8 @@
   width: 242px;
   float: right;
   margin: 1em;
-  background: url("../../img/plus.png");
-  background-image: url("../../img/plus.svg"), none;
+  background: url("../img/plus.png");
+  background-image: url("../img/plus.svg"), none;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -252,24 +252,24 @@
   border-bottom-right-radius: 4px; }
 
 .snzysldr_img-text {
-  background: url("../../img/text_small.png");
-  background-image: url("../../img/text_small.svg"), none; }
+  background: url("../img/text_small.png");
+  background-image: url("../img/text_small.svg"), none; }
 
 .snzysldr_size {
-  background: url("../../img/size.png");
-  background-image: url("../../img/size.svg"), none; }
+  background: url("../img/size.png");
+  background-image: url("../img/size.svg"), none; }
 
 .snzysldr_color {
-  background: url("../../img/brush.png");
-  background-image: url("../../img/brush.svg"), none; }
+  background: url("../img/brush.png");
+  background-image: url("../img/brush.svg"), none; }
 
 .snzysldr_upload {
-  background: url("../../img/upload.png");
-  background-image: url("../../img/upload.svg"), none; }
+  background: url("../img/upload.png");
+  background-image: url("../img/upload.svg"), none; }
 
 .snzysldr_color_save {
-  background: url("../../img/check.png");
-  background-image: url("../../img/check.svg"), none; }
+  background: url("../img/check.png");
+  background-image: url("../img/check.svg"), none; }
 
 .snzysldr_img-tool {
   width: 44px;
@@ -285,8 +285,8 @@
   display: none; }
 
 .snzysldr_close_bg {
-  background: url("../../img/close.png");
-  background-image: url("../../img/close.svg"), none;
+  background: url("../img/close.png");
+  background-image: url("../img/close.svg"), none;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain; }
@@ -479,8 +479,8 @@ input[type="checkbox"] + label span {
   width: 242px;
   float: right;
   margin: 1em;
-  background: url("../../img/text_large.png");
-  background-image: url("../../img/text_large.svg"), none;
+  background: url("../img/text_large.png");
+  background-image: url("../img/text_large.svg"), none;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;

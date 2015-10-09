@@ -43,8 +43,8 @@ add_action( 'admin_menu', 'snzysldr_add_admin_menu' );
 
 function snzysldr_admin_scripts() {
 
-  wp_register_style( 'snzysldr_admin_styles', plugins_url( 'css/css/snzysldr-admin.css', __FILE__ ) );
-  wp_register_style( 'snzysldr_admin_styles_rtl', plugins_url( 'css/css/snzysldr-admin-rtl.css', __FILE__ ) );
+  wp_register_style( 'snzysldr_admin_styles', plugins_url( 'css/snzysldr-admin.css', __FILE__ ) );
+  wp_register_style( 'snzysldr_admin_styles_rtl', plugins_url( 'css/snzysldr-admin-rtl.css', __FILE__ ) );
 
   wp_register_script( 'jquery-ui-sortable', '', array('jquery') );
   wp_register_script( 'jquery-effects-shake', '', array('jquery') );
