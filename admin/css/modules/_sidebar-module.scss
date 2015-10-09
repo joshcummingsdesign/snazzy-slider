@@ -1,0 +1,18 @@
+.snysldr_sidebar {
+  @media (min-width: 1308px) {
+    width: 200px;
+    position: absolute;
+    right: 19px;
+    z-index: 2;
+  }
+}
+
+.snzysldr_jcd {
+  font-style: italic;
+  & a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

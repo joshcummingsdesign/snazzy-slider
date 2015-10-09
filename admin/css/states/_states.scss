@@ -1,0 +1,14 @@
+#snzysldr-spinner {
+  display: none;
+  float: none;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 10px 0 10px 50px;
+  position: relative;
+  top: -4px;
+}
+
+.is-active {
+  display: inline-block !important;
+}
