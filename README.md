@@ -2,7 +2,7 @@
 Create elegant, responsive, and accessible sliders for your WordPress site.
 
 ## Description
-[Snazzy Slider](http://joshcummingsdesign.com/snazzy-slider) allows you to quickly and easily create beautiful, responsive, mobile-friendly sliders that are accessible and customizable.
+Snazzy Slider allows you to quickly and easily create beautiful, responsive, mobile-friendly sliders that are accessible and customizable.
 With all the slider plugins available, why Snazzy Slider?
 Pure and simple, Snazzy Slider is fast, responsive, accessible, flexible, and completely open source.
 Snazzy Slider is ready for touch devices like smartphones and tablets, and gives you the option to display excerpts of any posts you'd like.
@@ -29,12 +29,4 @@ Snazzy Slider is ready for touch devices like smartphones and tablets, and gives
 5. After you have configured your slider, copy and paste the shortcode onto any page you'd like!
 
 ## Thank You
-[Matt Bryson](https://github.com/mattbryson) for [TouchSwipe](https://github.com/mattbryson/TouchSwipe-Jquery-Plugin) and [Nicolas Gallagher](https://github.com/necolas) for [Normalize.css](https://github.com/necolas/normalize.css).
-Thank you for using Snazzy Slider! Please reach out with any questions, comments, or feedback.
-
-## Release Notes
-* Snazzy Slider v0.0.2
-
-== Changelog ==
-= 1.0 =
-* Initial release
+[Matt Bryson](https://github.com/mattbryson) for [TouchSwipe](https://github.com/mattbryson/TouchSwipe-Jquery-Plugin).
