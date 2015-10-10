@@ -33,7 +33,7 @@ Snazzy Slider is ready for touch devices like smartphones and tablets, and gives
 * Unlimited sliders (one per page, see more below).
 * All features are completely free and open source.
 
-[youtube http://www.youtube.com]
+[youtube https://www.youtube.com/watch?v=D4GKnTNFL6M]
 
 [View Demo](http://joshcummingsdesign.com)
 
@@ -48,8 +48,6 @@ By [Josh Cummings Design](http://joshcummingsdesign.com).
 3. Upload your images and make sure to include alt text for screen readers.
 4. Customize your slider by clicking the edit button.
 5. After you have configured your slider, copy and paste the shortcode onto any page you'd like!
-
-[youtube http://www.youtube.com]
 
 == Frequently Asked Questions ==
 
