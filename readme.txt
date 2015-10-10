@@ -71,6 +71,7 @@ You can view the source code via the WordPress.org plugin directory or by visiti
 2. Customize just about every feature.
 3. Create beautiful, responsive sliders.
 4. Works with any style or theme.
+5. Works on any device.
 
 == Changelog ==
 
