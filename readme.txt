@@ -80,5 +80,5 @@ You can view the source code via the WordPress.org plugin directory or by visiti
 
 == Upgrade Notice ==
 
-= 1.1 =
+= 1.0 =
 Thank you for downloading the initial release of Snazzy Slider!
