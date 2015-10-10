@@ -35,8 +35,6 @@ Snazzy Slider is ready for touch devices like smartphones and tablets, and gives
 
 [youtube https://www.youtube.com/watch?v=D4GKnTNFL6M]
 
-[View Demo](http://joshcummingsdesign.com)
-
 Thank you for using Snazzy Slider! Please reach out with any questions, comments, or feedback.
 
 By [Josh Cummings Design](http://joshcummingsdesign.com).
@@ -77,5 +75,9 @@ You can view the source code via the WordPress.org plugin directory or by visiti
 == Changelog ==
 
 = 1.0 =
-
 * Initial release
+
+== Upgrade Notice ==
+
+= 1.1 =
+Thank you for downloading the initial release of Snazzy Slider!
