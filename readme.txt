@@ -8,7 +8,7 @@ Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Create elegant, responsive, and accessible sliders for your WordPress site.
+Elegant, responsive, accessible sliders for WordPress.
 
 == Description ==
 
@@ -17,6 +17,8 @@ Create elegant, responsive, and accessible sliders for your WordPress site.
 With all the slider plugins available, why Snazzy Slider?
 Pure and simple, Snazzy Slider is fast, responsive, accessible, flexible, and completely open source.
 Snazzy Slider is ready for touch devices like smartphones and tablets, and gives you the option to display excerpts from any post you'd like.
+
+[youtube https://www.youtube.com/watch?v=D4GKnTNFL6M]
 
 **Features include:**
 
@@ -32,8 +34,6 @@ Snazzy Slider is ready for touch devices like smartphones and tablets, and gives
 * Only loads scripts when needed to optimize site performance.
 * Unlimited sliders (one per page, see more below).
 * All features are completely free and open source.
-
-[youtube https://www.youtube.com/watch?v=D4GKnTNFL6M]
 
 Thank you for using Snazzy Slider! Please reach out with any questions, comments, or feedback.
 
