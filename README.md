@@ -1,5 +1,5 @@
 # Snazzy Slider v1.0
-Create elegant, responsive, and accessible sliders for your WordPress site.
+Elegant, responsive, accessible sliders for WordPress.
 
 ## Description
 Snazzy Slider allows you to quickly and easily create beautiful, responsive, mobile-friendly sliders that are accessible and customizable.
