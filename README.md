@@ -8,6 +8,7 @@ Pure and simple, Snazzy Slider is fast, responsive, accessible, flexible, and co
 Snazzy Slider is ready for touch devices like smartphones and tablets, and gives you the option to display excerpts from any post you'd like.
 
 [Watch Welcome Video](https://www.youtube.com/watch?v=D4GKnTNFL6M)
+
 [View Demo](http://www.joshcummingsdesign.com/snazzy-slider)
 
 ## Features
