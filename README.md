@@ -8,6 +8,7 @@ Pure and simple, Snazzy Slider is fast, responsive, accessible, flexible, and co
 Snazzy Slider is ready for touch devices like smartphones and tablets, and gives you the option to display excerpts from any post you'd like.
 
 [Watch Welcome Video](https://www.youtube.com/watch?v=D4GKnTNFL6M)
+[View Demo](http://www.joshcummingsdesign.com/snazzy-slider)
 
 ## Features
 * Responsive and ready for any device.
@@ -20,7 +21,7 @@ Snazzy Slider is ready for touch devices like smartphones and tablets, and gives
 * Built with accessibility (ARIA) best-practices which means everyone can enjoy your site.
 * SEO and screen reader friendly.
 * Only loads scripts when needed to optimize site performance.
-* Unlimited sliders (one per page, see more below).
+* Unlimited sliders (one per page).
 * All features are completely free and open source.
 
 ## Installation
