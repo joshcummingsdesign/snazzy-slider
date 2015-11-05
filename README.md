@@ -1,4 +1,4 @@
-# Snazzy Slider v1.0.1
+# Snazzy Slider v1.0
 Elegant, responsive, accessible sliders for WordPress.
 
 ## Description
